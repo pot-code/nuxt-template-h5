@@ -1,0 +1,41 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@types/lodash-es": "^4.17.10",
+    "@unocss/nuxt": "^0.56.5",
+    "@unocss/preset-rem-to-px": "^0.56.5",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "nuxt": "^3.8.0",
+    "prettier": "^3.0.3",
+    "sass": "^1.69.4",
+    "typescript": "^5.2.2",
+    "unocss": "^0.56.5",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5",
+    "vue-tsc": "^1.8.19"
+  },
+  "dependencies": {
+    "@tanstack/vue-query": "^5.0.0",
+    "@vant/nuxt": "^1.0.3",
+    "@vueuse/core": "^10.5.0",
+    "axios": "^1.5.1",
+    "lodash-es": "^4.17.21",
+    "rxjs": "^7.8.1",
+    "vant": "^4.7.2"
+  }
+}

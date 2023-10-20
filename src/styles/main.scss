@@ -1,0 +1,12 @@
+@use './transition';
+
+html,
+body,
+#app {
+  user-select: none;
+  will-change: transform;
+}
+
+* {
+  box-sizing: border-box;
+}
