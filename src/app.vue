@@ -6,8 +6,8 @@ import '~/styles/main.scss'
 
 <template>
   <error-boundary>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <nuxt-layout>
+      <nuxt-page />
+    </nuxt-layout>
   </error-boundary>
 </template>
