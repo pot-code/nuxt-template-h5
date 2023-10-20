@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { showDialog } from 'vant'
 
+await useFetch('/api/test', {
+  server: false,
+})
+
 definePageMeta({
   title: 'Home',
   middleware: 'auth',
