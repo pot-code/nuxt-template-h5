@@ -1,12 +1,28 @@
 <script setup lang="ts">
-import type { LoginPayload } from '~/features/auth/api'
-import useAuth from '~/features/auth/useAuth'
+import { useMutation } from '@tanstack/vue-query'
+import type { LoginPayload } from '~/features/auth/useAuthApi'
+import useAuthApi from '~/features/auth/useAuthApi'
 
 const formData = reactive<LoginPayload>({
   username: '',
   password: '',
 })
-const { login, isLoggingIn } = useAuth()
+
+const api = useAuthApi()
+const { setToken } = useTokenStore()
+const loginMutation = useMutation({
+  mutationFn: api.login,
+  onSuccess({ data }) {
+    if (data.value?.data) {
+      setToken(data.value.data)
+      navigateTo({ name: 'home' })
+    }
+  },
+})
+
+function login(payload: LoginPayload) {
+  loginMutation.mutate(payload)
+}
 
 function onSubmit() {
   login(toRaw(formData))
@@ -38,9 +54,17 @@ function onSubmit() {
         </template>
       </van-field>
       <div class="p-6">
-        <van-button block round :disabled="isLoggingIn" type="primary" native-type="submit">登录</van-button>
+        <van-button block round type="primary" native-type="submit" :disabled="loginMutation.isSuccess.value">
+          登录
+        </van-button>
       </div>
     </van-form>
-    <van-toast :show="isLoggingIn" forbid-click type="loading" message="登录中..." loading-type="circular" />
+    <van-toast
+      forbid-click
+      type="loading"
+      message="登录中..."
+      loading-type="circular"
+      :show="loginMutation.isPending.value"
+    />
   </div>
 </template>

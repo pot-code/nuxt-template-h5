@@ -1,10 +1,12 @@
 import type { UseFetchOptions } from 'nuxt/app'
 
-function request<T>(method: 'get' | 'post' | 'delete' | 'put', url: string, options?: UseFetchOptions<any>) {
-  return useFetch<HttpResponse<T>>(url, {
+function request<T>(method: 'get' | 'post' | 'delete' | 'put', url: string, options?: UseFetchOptions<T>) {
+  const config = useRuntimeConfig()
+  return useFetch(url, {
     method,
     lazy: true,
     server: false,
+    baseURL: config.public.API_PREFIX,
     ...options,
   })
 }
@@ -14,16 +16,22 @@ export default function useClientFetch() {
     return request<T>('get', url, options)
   }
 
-  function post<T = any>(url: string, options?: UseFetchOptions<any>) {
-    return request<T>('post', url, options)
+  function post<T = any>(url: string, data?: any, options?: UseFetchOptions<any>) {
+    return request<T>('post', url, {
+      body: data,
+      ...options,
+    })
+  }
+
+  function put<T = any>(url: string, data?: any, options?: UseFetchOptions<any>) {
+    return request<T>('put', url, {
+      body: data,
+      ...options,
+    })
   }
 
   function del<T = any>(url: string, options?: UseFetchOptions<any>) {
     return request<T>('delete', url, options)
-  }
-
-  function put<T = any>(url: string, options?: UseFetchOptions<any>) {
-    return request<T>('put', url, options)
   }
 
   return {
@@ -32,10 +40,4 @@ export default function useClientFetch() {
     post,
     put,
   }
-}
-
-interface HttpResponse<T> {
-  code: number
-  msg: string | null
-  data: T | null
 }

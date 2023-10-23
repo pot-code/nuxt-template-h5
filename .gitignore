@@ -15,10 +15,10 @@ node_modules
 .idea
 .vscode
 
-# Local env files
-.env
-.env.*
-!.env.example
+# # Local env files
+# .env
+# .env.*
+# !.env.example
 
 # Logs
 logs
