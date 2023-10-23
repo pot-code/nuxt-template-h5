@@ -3,6 +3,11 @@ import { useMutation } from '@tanstack/vue-query'
 import type { LoginPayload } from '~/features/auth/useAuthApi'
 import useAuthApi from '~/features/auth/useAuthApi'
 
+definePageMeta({
+  title: 'Login',
+  layout: 'default',
+})
+
 const formData = reactive<LoginPayload>({
   username: '',
   password: '',
