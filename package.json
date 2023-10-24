@@ -34,6 +34,7 @@
     "@vant/nuxt": "^1.0.3",
     "@vueuse/core": "^10.5.0",
     "lodash-es": "^4.17.21",
+    "nuxt-icons": "^3.2.1",
     "vant": "^4.7.2"
   }
 }

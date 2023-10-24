@@ -44,7 +44,7 @@ function onSubmit() {
         :rules="[{ required: true, message: '用户名必填' }]"
       >
         <template #left-icon>
-          <local-icon name="username" />
+          <nuxt-icon name="username" />
         </template>
       </van-field>
       <van-field
@@ -55,7 +55,7 @@ function onSubmit() {
         :rules="[{ required: true, message: '密码必填' }]"
       >
         <template #left-icon>
-          <local-icon name="password" />
+          <nuxt-icon name="password" />
         </template>
       </van-field>
       <div class="p-6">
