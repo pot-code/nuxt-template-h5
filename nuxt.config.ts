@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
-  modules: ['@unocss/nuxt', '@vant/nuxt', 'nuxt-icons'],
+  modules: ['@unocss/nuxt', '@vant/nuxt', 'nuxt-icon'],
   srcDir: 'src/',
   typescript: {
     typeCheck: true,
